@@ -127,3 +127,19 @@ h1
 {
 	background-color: rgb(215, 215, 215);
 }
+
+footer
+{
+	height: 50px;
+	width: 100%;
+	background-color: rgb(98, 117, 127);
+}
+
+#footer_message
+{
+	height: 100%px;
+	text-align: center;
+	text-decoration: underline;
+	padding-top: 15px;
+	padding-bottom: 0px;
+}
