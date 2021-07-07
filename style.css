@@ -55,16 +55,10 @@ header
 	background-size: 100%;
 }
 
-.selection_list
-{
-	height: 200px;
-	width: 100%;
-	margin: 0;
-}
 
 #top_film_selection
 {
-	background-color: rgb(98, 117, 127)
+	background-color: rgb(98, 117, 127);
 }
 
 .selection_list
@@ -72,6 +66,9 @@ header
 	display: flex;
 	justify-content: space-around;
 	overflow: scroll;
+	height: 200px;
+	width: 125%;
+	margin: 0;
 }
 
 .bloc_illustration
@@ -95,8 +92,8 @@ header
 	margin-bottom: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	height: 155px;
-	width: 205px;
+	height: 160px;
+	width: 220px;
 	border: 1px solid black;
 
 	border-radius: 5px 5px 5px 5px;
@@ -107,7 +104,18 @@ header
 h1
 {
 	padding-top: 10px;
+	margin-top:  0px;
 	margin-bottom: 0px;
+	position: relative;
 }
 
+.selection
+{
+	margin: 0px;
+	overflow: scroll;
+}
 
+#top_action_film_selection
+{
+	background-color: rgb(215, 215, 215);
+}
