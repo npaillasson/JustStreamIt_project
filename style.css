@@ -1,0 +1,38 @@
+body
+{
+	background-color: rgb(226, 226, 226);
+	margin: 0;
+}
+
+#bloc_page
+{
+	width: 900px;
+	margin: auto;
+	justify-content: center;
+}
+
+header
+{
+	background-color: rgb(98, 117, 127);
+	width: 100%;
+	height: 80px;
+	border-bottom: 1px solid black;
+}
+
+#logo
+{
+	width: 8%;
+}
+
+#top_film
+{
+	margin-top: 15px;
+	height: 300px;
+	width: 800px;
+	border: 1px solid black;
+
+	border-radius: 0px 0px 5px 5px;
+	background: url('images/south.jpeg') no-repeat;
+	background-size: 100%;
+
+}
