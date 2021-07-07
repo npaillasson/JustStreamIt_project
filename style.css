@@ -6,9 +6,9 @@ body
 
 #bloc_page
 {
-	width: 900px;
+	width: 100%;
 	margin: auto;
-	justify-content: center;
+	justify-content: center
 }
 
 header
@@ -21,14 +21,18 @@ header
 
 #logo
 {
-	width: 8%;
+	min-width: auto;
+	max-width: 8%;
 }
 
-#top_film
+#top_film_illustration
 {
 	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: auto;
+	margin-right: auto;
 	height: 300px;
-	width: 800px;
+	width: 50em;
 	border: 1px solid black;
 
 	border-radius: 0px 0px 5px 5px;
@@ -36,3 +40,17 @@ header
 	background-size: 100%;
 
 }
+
+h1
+{
+	justify-items: left;
+}
+
+#top_film_selection
+{
+	background-color: rgb(98, 117, 127);
+	height: 200px;
+	width: 100%;
+	margin: 0;
+}
+
