@@ -35,22 +35,79 @@ header
 	width: 50em;
 	border: 1px solid black;
 
-	border-radius: 0px 0px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
 	background: url('images/south.jpeg') no-repeat;
 	background-size: 100%;
 
 }
-
-h1
+#top_film_illustration:hover
 {
-	justify-items: left;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 325px;
+	width: 55em;
+	border: 1px solid black;
+
+	border-radius: 5px 5px 5px 5px;
+	background: url('images/south.jpeg') no-repeat;
+	background-size: 100%;
 }
 
-#top_film_selection
+.selection_list
 {
-	background-color: rgb(98, 117, 127);
 	height: 200px;
 	width: 100%;
 	margin: 0;
 }
+
+#top_film_selection
+{
+	background-color: rgb(98, 117, 127)
+}
+
+.selection_list
+{
+	display: flex;
+	justify-content: space-around;
+	overflow: scroll;
+}
+
+.bloc_illustration
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 150px;
+	width: 200px;
+	border: 1px solid black;
+
+	border-radius: 5px 5px 5px 5px;
+	background: url('images/south.jpeg') no-repeat;
+	background-size: 150%;
+}
+
+.bloc_illustration:hover
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 155px;
+	width: 205px;
+	border: 1px solid black;
+
+	border-radius: 5px 5px 5px 5px;
+	background: url('images/south.jpeg') no-repeat;
+	background-size: 150%;
+}
+
+h1
+{
+	padding-top: 10px;
+	margin-bottom: 0px;
+}
+
 
