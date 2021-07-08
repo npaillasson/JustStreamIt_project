@@ -73,11 +73,7 @@ header
 
 .selection_list
 {
-	display: flex;
-	justify-content: space-around;
 	overflow: scroll;
-	height: 200px;
-	width: 130%;
 	margin: 0;
 }
 
@@ -124,7 +120,16 @@ h1
 .selection
 {
 	margin: 0px;
+	/*overflow: scroll;*/
+}
+
+.scrolling_zone
+{
 	overflow: scroll;
+	height: 200px;
+	width: 130%;
+	display: flex;
+	justify-content: space-around;
 }
 
 #top_action_film_selection
