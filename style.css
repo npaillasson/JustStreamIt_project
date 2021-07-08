@@ -7,10 +7,10 @@ body
 #bloc_page
 {
 	width: 100%;
+	height: 100%;
 	margin: auto;
 	justify-content: center;
 	position: relative;
-		width: 100%;
 		top: 80px;
 }
 
@@ -18,19 +18,19 @@ header
 {
 	background-color: rgb(98, 117, 127);
 	z-index: 1;
-	width: 100%;
 	height: 80px;
 	border-bottom: 1px solid black;
 	background-attachment: fixed;
 	position: fixed;
-		width: 100%;
+		width: 90em;
 		top: 0px;
 }
 
 #logo
 {
-	min-width: auto;
+
 	max-width: 8%;
+
 }
 
 #top_film_illustration
@@ -40,13 +40,11 @@ header
 	margin-left: auto;
 	margin-right: auto;
 	height: 300px;
-	width: 50em;
+	width: 500px;
 	border: 1px solid black;
 	position: relative;
 
 	border-radius: 5px 5px 5px 5px;
-	background: url('images/south.jpeg') no-repeat;
-	background-size: 100%;
 
 }
 #top_film_illustration:hover
@@ -56,13 +54,11 @@ header
 	margin-left: auto;
 	margin-right: auto;
 	height: 310px;
-	width: 52em;
+	width: 510px;
 	border: 1px solid black;
 	position: relative;
 
 	border-radius: 5px 5px 5px 5px;
-	background: url('images/south.jpeg') no-repeat;
-	background-size: 100%;
 }
 
 
@@ -73,40 +69,39 @@ header
 
 .selection_list
 {
-	overflow: scroll;
 	margin: 0;
+	display: flex;
+	overflow: scroll;
 }
 
 .bloc_illustration
 {
+	flex: none;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 10px;
+	margin-right: 10px;
 	height: 150px;
 	width: 250px;
 	border: 1px solid black;
 	position: relative;
 
+
 	border-radius: 5px 5px 5px 5px;
-	background: url('images/south.jpeg') no-repeat;
-	background-size: 150%;
 }
 
 .bloc_illustration:hover
 {
 	margin-top: 10px;
 	margin-bottom: 10px;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 10px;
+	margin-right: 10px;
 	height: 160px;
 	width: 260px;
 	border: 1px solid black;
 	position: relative;
 
 	border-radius: 5px 5px 5px 5px;
-	background: url('images/south.jpeg') no-repeat;
-	background-size: 150%;
 }
 
 h1
@@ -114,22 +109,14 @@ h1
 	padding-top: 10px;
 	margin-top:  0px;
 	margin-bottom: 0px;
+	margin-left: 5px;
 	position: relative;
 }
 
 .selection
 {
 	margin: 0px;
-	/*overflow: scroll;*/
-}
-
-.scrolling_zone
-{
-	overflow: scroll;
-	height: 200px;
-	width: 130%;
-	display: flex;
-	justify-content: space-around;
+	padding-bottom: 5px;
 }
 
 #top_action_film_selection
@@ -157,10 +144,17 @@ footer
 	position: absolute;
 		bottom: 0;
 	height: 33px;
-	border-radius: 0px 0px 4px 4px;
+	border-radius: 0px 0px 3px 3px;
 	width: 100%;
-	background-color: rgba(24,24,24,0.8);
+	background-color: rgba(24,24,24,0.7);
 	color: white;
 	font-size: 0.8em;
 	padding-left: 0.3%;
+}
+
+img
+{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
