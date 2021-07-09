@@ -1,3 +1,5 @@
+const numberOfPagesToView = 1; //number of pages that must be consulted to obtain seven films (5 films per page)
+
 let bestMovies = {
 	genre: "",
 	bestMoviesArray: []
@@ -23,9 +25,35 @@ let startFilterUrl = "api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_
 let endFilterUrl = "&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
 
 
-function getIDlist(moviesObject) {
+
+function getUrl(moviesObject) {
 	let url = endPoint + startFilterUrl + moviesObject.genre + endFilterUrl;
-	console.log(url);
+	return url;
+}
+
+function putResultsInArray(results) {
+	for (result of results) {
+
+	}
+}
+
+function getIDlist(moviesObject) {
+	let url = getUrl(moviesObject);
+	let idList = [];
+	let numberOfPageViewed = 0;
+	moviesObject.genre = []
+		fetch(url)
+			.then(res => {
+				if (res.ok) {
+					res.json().then(data => {
+						idList = idList.concat(data["results"]);
+						console.log(idList)
+						numberOfPageViewed += 1;
+					})
+				} else {
+				console.log("erreur");
+		}
+	})
 }
 
 getIDlist(bestMovies);
