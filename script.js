@@ -1,25 +1,34 @@
 let bestMovies = {
-	specURI: "";
-	bestMoviesArray: [];
-}
+	genre: "",
+	bestMoviesArray: []
+};
 
 let bestActionMovies = {
-	specURI: "Action";
-	bestActionMoviesArray: [];
-}
+	genre: "Action",
+	bestActionMoviesArray: []
+};
 
 let bestMysteryMovies = {
-	specURI: "Mystery";
-	bestMysteryMoviesArray: [];
-}
+	genre: "Mystery",
+	bestMysteryMoviesArray: []
+};
 
 let bestFantasyMovies = {
-	specURI: "Fantasy";
-	bestFantasyMoviesArray: [];
-}
+	genre: "Fantasy",
+	bestFantasyMoviesArray: []
+};
+
+const endPoint = "http://localhost:8000/"
+let startFilterUrl = "api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre="
+let endFilterUrl = "&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
+
 
 function getIDlist(moviesObject) {
+	let url = endPoint + startFilterUrl + moviesObject.genre + endFilterUrl;
+	console.log(url);
 }
+
+getIDlist(bestMovies);
 
 class Film {
 	constructor (image_url, title, genres, date_published, rated, imdb_score, directors, actors, duration, countries, worldwide_gross_income, description) {
@@ -38,5 +47,3 @@ class Film {
 	}
 }
 
-
-let requestType = "/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=${specURI}&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
