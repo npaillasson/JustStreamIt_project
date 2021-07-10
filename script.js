@@ -1,5 +1,3 @@
-const numberOfPagesToView = 1; //number of pages that must be consulted to obtain seven films (5 films per page)
-
 let bestMovies = {
 	genre: "",
 	bestMoviesArray: []
@@ -23,37 +21,55 @@ let bestFantasyMovies = {
 const endPoint = "http://localhost:8000/"
 let startFilterUrl = "api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre="
 let endFilterUrl = "&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
+let nextPage = "&page=2"
+
+let newArray = [];
 
 
 
 function getUrl(moviesObject) {
-	let url = endPoint + startFilterUrl + moviesObject.genre + endFilterUrl;
-	return url;
+	let url_page_1 = endPoint + startFilterUrl + moviesObject.genre + endFilterUrl;
+	let url_page_2 = endPoint + startFilterUrl + moviesObject.genre + endFilterUrl + nextPage;
+	return [url_page_1, url_page_2];
 }
 
-function putResultsInArray(results) {
-	for (result of results) {
-
-	}
+function getRequest(url) {
+	newArray = [];
+	fetch(url)
+		.then(res => {
+			if (res.ok) {
+				return res.json().then(data => {
+					newArray = data["results"]
+					console.log("premierArray:", newArray )
+				})
+			} else {
+			console.log("erreur");
+			}
+		})
 }
+
 
 function getIDlist(moviesObject) {
-	let url = getUrl(moviesObject);
+	let urlArray = getUrl(moviesObject);
 	let idList = [];
-	let numberOfPageViewed = 0;
 	moviesObject.genre = []
+	for (url of urlArray) {
 		fetch(url)
 			.then(res => {
 				if (res.ok) {
-					res.json().then(data => {
-						idList = idList.concat(data["results"]);
-						console.log(idList)
-						numberOfPageViewed += 1;
-					})
-				} else {
-				console.log("erreur");
-		}
-	})
+				res.json().then(data => {
+					newArray = data["results"]
+					console.log("premierArray:", newArray )
+					idList = idList.concat(newArray)
+					console.log(idList)
+				})
+			} else {
+			console.log("erreur");
+			}
+		})
+		//idList = idList.concat(newArray)
+	}
+	console.log("test", idList)
 }
 
 getIDlist(bestMovies);
