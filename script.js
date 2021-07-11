@@ -1,20 +1,24 @@
-let bestMovies = {
+var bestMovies = {
 	genre: "",
+	moviesIds: [],
 	bestMoviesArray: []
 };
 
-let bestActionMovies = {
+var bestActionMovies = {
 	genre: "Action",
+	moviesIds: [],
 	bestActionMoviesArray: []
 };
 
-let bestMysteryMovies = {
+var bestMysteryMovies = {
 	genre: "Mystery",
+	moviesIds: [],
 	bestMysteryMoviesArray: []
 };
 
-let bestFantasyMovies = {
+var bestFantasyMovies = {
 	genre: "Fantasy",
+	moviesIds: [],
 	bestFantasyMoviesArray: []
 };
 
@@ -22,8 +26,6 @@ const endPoint = "http://localhost:8000/"
 let startFilterUrl = "api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre="
 let endFilterUrl = "&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains="
 let nextPage = "&page=2"
-
-let newArray = [];
 
 
 
@@ -52,27 +54,36 @@ function getRequest(url) {
 function getIDlist(moviesObject) {
 	let urlArray = getUrl(moviesObject);
 	let idList = [];
-	moviesObject.genre = []
-	for (url of urlArray) {
-		fetch(url)
-			.then(res => {
-				if (res.ok) {
-				res.json().then(data => {
-					newArray = data["results"]
-					console.log("premierArray:", newArray )
-					idList = idList.concat(newArray)
-					console.log(idList)
-				})
-			} else {
-			console.log("erreur");
-			}
-		})
-		//idList = idList.concat(newArray)
+	let newObject = [];
+	for (url of urlArray){
+	fetch(url)
+	  .then(function(res) {
+	    if (res.ok) {
+	      return res.json();
+	    }
+	  })
+	  .then(function(value) {
+	    newObject = (value["results"]);
+	    for (id of newObject) {
+	    	idList.push(id)
+	    }
+	  return idList
+	  })
+	  .catch(function(err) {
+	    // Une erreur est survenue
+	  });
+	  console.log(idList)
+
 	}
-	console.log("test", idList)
+	console.log(idList)
+	return idList
 }
 
-getIDlist(bestMovies);
+bestMovies["moviesIds"] = getIDlist(bestMovies);
+let test = bestMovies.moviesIds[0]
+console.log("test", test)
+console.log(bestMovies["moviesIds"])
+
 
 class Film {
 	constructor (image_url, title, genres, date_published, rated, imdb_score, directors, actors, duration, countries, worldwide_gross_income, description) {
