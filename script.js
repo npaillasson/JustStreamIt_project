@@ -9,19 +9,23 @@ var firstCategory = {
 	genre: "Action",
 	mainUrls: [],
 	moviesIds: [],
+	img_selector: document.getElementsByClassName("first_category_img")
 };
 
 var secondeCategory = {
 	genre: "Mystery",
 	mainUrls: [],
 	moviesIds: [],
+	img_selector: document.getElementsByClassName("seconde_category_img")
 };
 
 var thirdCategory = {
 	genre: "Fantasy",
 	mainUrls: [],
 	moviesIds: [],
+	img_selector: document.getElementsByClassName("third_category_img")
 };
+
 
 var categoriesArray = [bestMovies, firstCategory, secondeCategory, thirdCategory]
 console.log(categoriesArray)
@@ -45,28 +49,40 @@ for (let category of categoriesArray) {
 	getMainUrl(category);
 }
 
-fetch(bestMovies["mainUrls"][0]).then(response => response.json().then((data) => {
+fetch(bestMovies.mainUrls[0]).then(reponse => reponse.json().then((data) => {
+	let top_film_img = document.getElementById("top_img");
+	console.log(top_film_img)
+	top_film_img.src = data["results"][0]["image_url"]
+	console.log(data["results"][0]["image_url"])
+	console.log(top_film_img)
+}))
+
+for (let category of categoriesArray) {
+console.log(category)
+fetch(category["mainUrls"][0]).then(response => response.json().then((data) => {
 	console.log(data)
 	console.log(data["results"])
-	bestMovies["moviesIds"] = data["results"]
-	for (let index in bestMovies["moviesIds"]){
-		bestMovies["img_selector"][index].src = bestMovies["moviesIds"][index]["image_url"]
-
+	category["moviesIds"] = data["results"]
+	for (let index in category["moviesIds"]){
+		category["img_selector"][index].src = category["moviesIds"][index]["image_url"]
+		console.log(category["img_selector"][index])
 	}
-	console.log(bestMovies["moviesIds"])
+
+	console.log(category["moviesIds"])
 }))
-fetch(bestMovies["mainUrls"][1]).then(response => response.json().then((data) => {
+fetch(category["mainUrls"][1]).then(response => response.json().then((data) => {
 	console.log(data)
-	bestMovies["moviesIds"] = data["results"]
+	category["moviesIds"] = data["results"]
 	//bestMovies["moviesIds"].pop()
 	//bestMovies["moviesIds"].pop()
-		for (let index in bestMovies["moviesIds"]){
+		for (let index in category["moviesIds"]){
 		console.log(index)
 		console.log(typeof index)
-		bestMovies["img_selector"][Number(index) + 5].src = bestMovies["moviesIds"][index]["image_url"]
+		category["img_selector"][(Number(index) + 5)].src = category["moviesIds"][index]["image_url"]
 
 	}
 }))
+}
 
 console.log(bestMovies, firstCategory, secondeCategory, thirdCategory)
 
