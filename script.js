@@ -1,26 +1,29 @@
 var bestMovies = {
 	genre: "",
+	mainUrls: [],
 	moviesIds: [],
-	bestMoviesArray: []
 };
 
-var firstCategorie = {
+var firstCategory = {
 	genre: "Action",
+	mainUrls: [],
 	moviesIds: [],
-	bestActionMoviesArray: []
 };
 
-var secondeCategorie = {
+var secondeCategory = {
 	genre: "Mystery",
+	mainUrls: [],
 	moviesIds: [],
-	bestMysteryMoviesArray: []
 };
 
-var thirdCategorie = {
+var thirdCategory = {
 	genre: "Fantasy",
+	mainUrls: [],
 	moviesIds: [],
-	bestFantasyMoviesArray: []
 };
+
+var categoriesArray = [bestMovies, firstCategory, secondeCategory, thirdCategory]
+console.log(categoriesArray)
 
 const endPoint = "http://localhost:8000/"
 let startFilterUrl = "api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre="
@@ -29,16 +32,20 @@ let nextPage = "&page=2"
 
 
 
-function getUrl(moviesObject) {
+function getMainUrl(moviesObject) {
 let genre = moviesObject.genre
 let urlFirstPage = endPoint + startFilterUrl + moviesObject.genre + endFilterUrl
 let urlSecondePage = urlFirstPage + nextPage;
 let returnArray = [urlFirstPage, urlSecondePage];
-return returnArray
+moviesObject.mainUrls = returnArray
 }
 
-let test = getUrl(bestMovies);
-console.log(test[1])
+for (let category of categoriesArray) {
+	getMainUrl(category);
+}
+
+
+console.log(bestMovies, firstCategory, secondeCategory, thirdCategory)
 
 
 class Film {
