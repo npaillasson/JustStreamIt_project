@@ -45,14 +45,27 @@ for (let category of categoriesArray) {
 	getMainUrl(category);
 }
 
-fetch(bestMovies["mainUrls"][1]).then(response => response.json().then((data) => {
+fetch(bestMovies["mainUrls"][0]).then(response => response.json().then((data) => {
 	console.log(data)
+	console.log(data["results"])
 	bestMovies["moviesIds"] = data["results"]
 	for (let index in bestMovies["moviesIds"]){
 		bestMovies["img_selector"][index].src = bestMovies["moviesIds"][index]["image_url"]
 
 	}
 	console.log(bestMovies["moviesIds"])
+}))
+fetch(bestMovies["mainUrls"][1]).then(response => response.json().then((data) => {
+	console.log(data)
+	bestMovies["moviesIds"] = data["results"]
+	//bestMovies["moviesIds"].pop()
+	//bestMovies["moviesIds"].pop()
+		for (let index in bestMovies["moviesIds"]){
+		console.log(index)
+		console.log(typeof index)
+		bestMovies["img_selector"][Number(index) + 5].src = bestMovies["moviesIds"][index]["image_url"]
+
+	}
 }))
 
 console.log(bestMovies, firstCategory, secondeCategory, thirdCategory)
