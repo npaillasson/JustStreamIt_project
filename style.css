@@ -185,14 +185,20 @@ img
 }
 
 .modal_division {
+	display: flex;
 	display-direction: row;
 }
 
 .modal_quarter_division {
 	display-direction: column;
+	margin: 0px;
 }
 
 #close_button{
 	max-width: 5%;
 	max-height: 5%;
+}
+
+#image_modal {
+	width: auto;
 }
