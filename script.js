@@ -62,9 +62,9 @@ console.log(category)
 fetch(category["mainUrls"][0]).then(response => response.json().then((data) => {
 	console.log(data)
 	console.log(data["results"])
-	category["moviesIds"] = data["results"]
-	for (let index in category["moviesIds"]){
-		category["img_selector"][index].src = category["moviesIds"][index]["image_url"]
+	for (let index in data["results"]){
+		category["moviesIds"].splice(index, 0 , data["results"][index]["id"])
+		category["img_selector"][index].src = data["results"][index]["image_url"]
 		console.log(category["img_selector"][index])
 	}
 
@@ -72,13 +72,14 @@ fetch(category["mainUrls"][0]).then(response => response.json().then((data) => {
 }))
 fetch(category["mainUrls"][1]).then(response => response.json().then((data) => {
 	console.log(data)
-	category["moviesIds"] = data["results"]
 	//bestMovies["moviesIds"].pop()
 	//bestMovies["moviesIds"].pop()
-		for (let index in category["moviesIds"]){
+		for (let index in data["results"]){
+		let shifted_index = (Number(index) + 5)
+		category["moviesIds"].splice(shifted_index, 0, data["results"][index]["id"])
 		console.log(index)
 		console.log(typeof index)
-		category["img_selector"][(Number(index) + 5)].src = category["moviesIds"][index]["image_url"]
+		category["img_selector"][(Number(index) + 5)].src = data["results"][index]["image_url"]
 
 	}
 }))
