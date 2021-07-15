@@ -104,3 +104,8 @@ class Film {
 	}
 }
 
+document.querySelectorAll(".bloc_illustration").forEach(section => {
+	console.log(section)
+	section.addEventListener("click", openmodal())
+})
+
