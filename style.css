@@ -166,7 +166,7 @@ img
 {
 	background: rgb(226, 226, 226);
 	width: 550px;
-	height: 560px;
+	min-height: 400px;
 	max-width: calc(100vw - 20px);
 	max-height: calc(100vh - 20px);
 	padding: 20px;
@@ -240,23 +240,42 @@ ul
 	padding: 0px 0px 0px 25px;
 }
 
+li
+{
+	margin-right: 20px;
+}
+
+#actors_list
+{
+	width: 370px;
+	max-height: 100px;
+	overflow: scroll;
+}
+
 #actors
 {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
-	/*overflow: scroll;*/
 }
 
 #under_actors_list
 {
 	display: flex;
-	justify-content: space-around;
 	padding-top: 20px;
-
+	justify-content: center;
 }
 
 #middle_modal
 {
 	justify-content: space-around;
+}
+
+#duration
+{
+	margin-right: 100px;
+}
+
+#middle_left_modal
+{
+	justify-content: space-between;
 }
