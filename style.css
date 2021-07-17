@@ -28,9 +28,7 @@ header
 
 #logo
 {
-
 	max-width: 8%;
-
 }
 
 #top_film_illustration
@@ -173,6 +171,7 @@ img
 	overflow: auto;
 	border-radius: 3px 3px 3px 3px;
 	display-direction: column;
+	position: relative;
 }
 
 .modal_division
@@ -194,6 +193,9 @@ img
 {
 	max-width: 18px;
 	max-height: 18px;
+	position: absolute;
+	top: 5px;
+	left: 5px;
 }
 
 #close_button:hover
@@ -249,7 +251,7 @@ li
 {
 	width: 370px;
 	max-height: 70px;
-	overflow: scroll;
+	overflow: auto;
 	background-color: rgb(232, 232, 232);
 }
 
@@ -271,7 +273,7 @@ li
 	margin-right: 100px;
 }
 
-#middle_left_modal
+#left_top_modal
 {
-	/*justify-content: space-between;*/
+	justify-content: space-between;
 }
