@@ -36,7 +36,6 @@ let endFilterUrl = "&genre_contains=&sort_by=-imdb_score&director=&director_cont
 let nextPage = "&page=2"
 
 
-
 function getMainUrl(moviesObject) {
 let genre = moviesObject.genre
 let urlFirstPage = endPoint + startFilterUrl + moviesObject.genre + endFilterUrl
@@ -63,6 +62,9 @@ console.log(category)
 fetch(category["mainUrls"][0]).then(response => response.json().then((data) => {
 	console.log(data)
 	console.log(data["results"])
+	if (category.genre == "") {
+		data["results"].shift()
+	}
 	for (let index in data["results"]){
 		category["img_selector"][index].id = data["results"][index]["id"]
 		category["img_selector"][index].src = data["results"][index]["image_url"]
@@ -73,10 +75,19 @@ fetch(category["mainUrls"][0]).then(response => response.json().then((data) => {
 }))
 fetch(category["mainUrls"][1]).then(response => response.json().then((data) => {
 	console.log(data["results"])
-	data["results"].splice(2, 3)
+	if (category.genre == "") {
+		data["results"].splice(3, 2)
+	} else {
+		data["results"].splice(2, 3)
+	}
 	console.log(data["results"])
 	for (let index in data["results"]) {
-		let shifted_index = (Number(index) + 5)
+		let shifted_index;
+		if (category.genre == "") {
+			shifted_index = (Number(index) + 4)
+		} else {
+			shifted_index = (Number(index) + 5)
+		}
 		category["img_selector"][(shifted_index)].id = data["results"][index]["id"]
 		category["img_selector"][(shifted_index)].src = data["results"][index]["image_url"]
 
