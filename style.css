@@ -170,7 +170,6 @@ img
 	padding: 20px;
 	overflow: auto;
 	border-radius: 3px 3px 3px 3px;
-	display-direction: column;
 	position: relative;
 }
 
@@ -212,7 +211,7 @@ img
 .modal_info_name
 {
 	font-size: 1em;
-	font-style: strong;
+	font-weight: bold;
 	padding: 0px;
 	margin: 10px 0px 3px 0px;
 }
@@ -233,7 +232,7 @@ p
 
 h1
 {
-	font-style: strong;
+	font-weight: bold;
 }
 
 ul
