@@ -165,7 +165,7 @@ img
 .modal_wrapper
 {
 	background: rgb(226, 226, 226);
-	width: 500px;
+	width: 550px;
 	height: 560px;
 	max-width: calc(100vw - 20px);
 	max-height: calc(100vh - 20px);
@@ -238,4 +238,25 @@ ul
 {
 	margin: 0;
 	padding: 0px 0px 0px 25px;
+}
+
+#actors
+{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	/*overflow: scroll;*/
+}
+
+#under_actors_list
+{
+	display: flex;
+	justify-content: space-around;
+	padding-top: 20px;
+
+}
+
+#middle_modal
+{
+	justify-content: space-around;
 }
