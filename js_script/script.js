@@ -27,14 +27,13 @@ var thirdCategory = {
 };
 
 var categoriesArray = [bestMovies, firstCategory, secondeCategory, thirdCategory];
-console.log(categoriesArray)
 
 function getMainUrl(moviesObject) {
 let genre = moviesObject.genre;
 let urlFirstPage = `http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=${genre}&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=`;
 let urlSecondePage = urlFirstPage + "&page=2";
 let returnArray = [urlFirstPage, urlSecondePage];
-moviesObject.mainUrls = returnArray
+moviesObject.mainUrls = returnArray;
 }
 
 for (let category of categoriesArray) {
@@ -43,37 +42,31 @@ for (let category of categoriesArray) {
 
 fetch(bestMovies.mainUrls[0]).then(reponse => reponse.json().then((data) => {
 	let top_film_img = document.getElementById("top_img");
-	console.log(top_film_img)
 	top_film_img.src = data["results"][0]["image_url"];
 	top_film_img.id = data["results"][0]["id"];
-	console.log(data["results"][0]["image_url"])
-	console.log(top_film_img)
 }))
 
 for (let category of categoriesArray) {
-console.log(category)
+
 fetch(category["mainUrls"][0]).then(response => response.json().then((data) => {
-	console.log(data)
-	console.log(data["results"])
+
 	if (category.genre == "") {
 		data["results"].shift()
 	}
 	for (let index in data["results"]){
 		category["img_selector"][index].id = data["results"][index]["id"];
 		category["img_selector"][index].src = data["results"][index]["image_url"];
-		console.log(category["img_selector"][index])
 	}
-
-	console.log(category["moviesIds"])
 }))
+
 fetch(category["mainUrls"][1]).then(response => response.json().then((data) => {
-	console.log(data["results"])
+
 	if (category.genre == "") {
 		data["results"].splice(3, 2)
 	} else {
 		data["results"].splice(2, 3)
 	}
-	console.log(data["results"])
+
 	for (let index in data["results"]) {
 		let shifted_index;
 		if (category.genre == "") {
@@ -83,7 +76,6 @@ fetch(category["mainUrls"][1]).then(response => response.json().then((data) => {
 		}
 		category["img_selector"][(shifted_index)].id = data["results"][index]["id"];
 		category["img_selector"][(shifted_index)].src = data["results"][index]["image_url"];
-
 	}
 }))
 }

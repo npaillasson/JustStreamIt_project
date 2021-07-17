@@ -25,39 +25,93 @@ header
 		width: 90em;
 		top: 0px;
 }
+#bloc_film_and_illustration
+{
+	display: flex;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 348.4px;
+	width: 500.2px;
+	border: 1px solid black;
+	border-radius: 5px 5px 5px 5px;
+	padding: 0;
+	position: relative;
+}
+
 
 #logo
 {
 	max-width: 8%;
 }
 
+#top_information
+{
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+	background-color: rgb(215, 215, 215);
+}
+
+#top_title
+{
+	position: absolute;
+	top: 5px;
+	left: 10px;
+	max-width: 236.6px;
+	font-weight: bold;
+}
+
+#top_description
+{
+	position: absolute;
+	top: 50px;
+	left: 10px;
+	width: 236.6px;
+	max-height: 200px;
+	overflow: auto;
+}
+
+#more_information
+{
+	position: absolute;
+	bottom: 50px;
+	width: 30px;
+	height: 30px;
+	margin-left: 116px;
+}	
+
+#more_information:hover
+{
+	position: absolute;
+	bottom: 50px;
+	width: 32px;
+	height: 32px;
+	margin-left: 116px;
+}	
+
 #top_film_illustration
 {
-	margin-top: 15px;
-	margin-bottom: 15px;
-	margin-left: auto;
-	margin-right: auto;
-	height: 348.4px;
 	width: 236.6px;
+	height: 348.4px;
 	border: 1px solid black;
-	position: relative;
+	padding: 0;
+	margin: 0;
 
 	border-radius: 5px 5px 5px 5px;
 
 }
 #top_film_illustration:hover
 {
-	margin-top: 15px;
-	margin-bottom: 15px;
-	margin-left: auto;
-	margin-right: auto;
-	height: 352.4px;
+	height: 348.4px;
 	width: 242.6px;
 	border: 1px solid black;
-	position: relative;
 
 	border-radius: 5px 5px 5px 5px;
 }
+
 
 
 #top_film_selection
@@ -82,7 +136,6 @@ header
 	height: 268px;
 	width: 182px;
 	border: 1px solid black;
-	position: relative;
 
 
 	border-radius: 5px 5px 5px 5px;
@@ -90,6 +143,7 @@ header
 
 .bloc_illustration:hover
 {
+	flex: none;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	margin-left: 25px;
@@ -97,7 +151,6 @@ header
 	height: 271px;
 	width: 185px;
 	border: 1px solid black;
-	position: relative;
 
 	border-radius: 5px 5px 5px 5px;
 }
@@ -156,8 +209,6 @@ img
 	display: none;
 	align-items: center;
 	justify-content: center;
-
-
 }
 
 .modal_wrapper
