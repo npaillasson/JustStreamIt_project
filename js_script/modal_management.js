@@ -1,5 +1,4 @@
 
-
 function makeBulletsList (infoArray) {
 	let returnValue = "";
 	for (let bullet of infoArray) {
@@ -44,27 +43,8 @@ const openmodal = function (e) {
 	}))
 	console.log(url)
 	closeButton.addEventListener("click", closemodal)
-
-
-
 }
 
 document.querySelectorAll(".film").forEach(img => {
 	img.addEventListener("click", openmodal)
 })
-
-let a = document.querySelectorAll(".film");
-console.log(a)
-//
-//	this.image_url = image_url
-//	this.title
-//	this.genres
-//	this.date_published
-//	this.rated
-//	this.imdb_score
-//	this.directors
-//	this.actors
-//	this.duration
-//	this.countries
-//	this.worldwide_gross_income
-//	this.description
