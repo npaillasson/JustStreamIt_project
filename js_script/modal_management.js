@@ -40,8 +40,8 @@ const openmodal = function (e) {
 		document.getElementById("worldwide_gross_income").innerText = data["worldwide_gross_income"] + " $"
 		document.getElementById("description").innerText = data["description"]
 
-	}))
-	console.log(url)
+	})).catch((err) => console.log("Erreur : " + err));
+
 	closeButton.addEventListener("click", closemodal)
 }
 

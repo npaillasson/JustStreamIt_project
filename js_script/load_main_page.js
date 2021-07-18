@@ -50,8 +50,8 @@ fetch(bestMovies.mainUrls[0]).then(reponse => reponse.json().then((data) => {
 		document.getElementById("top_description").innerText = filmData["description"];
 		let button = document.getElementById("more_information");
 		button.dataset.id = filmData["id"]
-	}))
-}))
+	})).catch((err) => console.log("Erreur : " + err));
+})).catch((err) => console.log("Erreur : " + err));
 
 for (let category of categoriesArray) {
 
@@ -64,7 +64,7 @@ fetch(category["mainUrls"][0]).then(response => response.json().then((data) => {
 		category["img_selector"][index].dataset.id = data["results"][index]["id"];
 		category["img_selector"][index].src = data["results"][index]["image_url"];
 	}
-}))
+})).catch((err) => console.log("Erreur : " + err));
 
 fetch(category["mainUrls"][1]).then(response => response.json().then((data) => {
 
@@ -84,5 +84,5 @@ fetch(category["mainUrls"][1]).then(response => response.json().then((data) => {
 		category["img_selector"][(shifted_index)].dataset.id = data["results"][index]["id"];
 		category["img_selector"][(shifted_index)].src = data["results"][index]["image_url"];
 	}
-}))
+})).catch((err) => console.log("Erreur : " + err));
 }
