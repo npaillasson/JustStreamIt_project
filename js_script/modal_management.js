@@ -23,7 +23,7 @@ const openmodal = function (e) {
 	modalWindow.style.display = "flex";
 	modalWindow.setAttribute("aria-hidden", false)
 	modalWindow.setAttribute("aria-modal", true)
-	const film_id = e.target.getAttribute("id");
+	const film_id = e.target.getAttribute("data-id");
 	let url = `http://localhost:8000/api/v1/titles/${film_id}`
 	fetch(url).then(response => response.json().then(data => {
 		modalWindow["title"]

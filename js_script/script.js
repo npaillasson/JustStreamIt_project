@@ -41,9 +41,16 @@ for (let category of categoriesArray) {
 }
 
 fetch(bestMovies.mainUrls[0]).then(reponse => reponse.json().then((data) => {
-	let top_film_img = document.getElementById("top_img");
-	top_film_img.src = data["results"][0]["image_url"];
-	top_film_img.id = data["results"][0]["id"];
+	let bestFilmId = data["results"][0]["id"];
+	fetch(`http://localhost:8000/api/v1/titles/${bestFilmId}`).then(secondResponse => secondResponse.json().then((filmData) => {
+		let top_film_img = document.getElementById("top_img");
+		top_film_img.src = filmData["image_url"];
+		top_film_img.dataset.id = filmData["id"];
+		document.getElementById("top_title").innerText = filmData["title"];
+		document.getElementById("top_description").innerText = filmData["description"];
+		let button = document.getElementById("more_information");
+		button.dataset.id = filmData["id"]
+	}))
 }))
 
 for (let category of categoriesArray) {
@@ -54,7 +61,7 @@ fetch(category["mainUrls"][0]).then(response => response.json().then((data) => {
 		data["results"].shift()
 	}
 	for (let index in data["results"]){
-		category["img_selector"][index].id = data["results"][index]["id"];
+		category["img_selector"][index].dataset.id = data["results"][index]["id"];
 		category["img_selector"][index].src = data["results"][index]["image_url"];
 	}
 }))
@@ -74,7 +81,7 @@ fetch(category["mainUrls"][1]).then(response => response.json().then((data) => {
 		} else {
 			shifted_index = (Number(index) + 5);
 		}
-		category["img_selector"][(shifted_index)].id = data["results"][index]["id"];
+		category["img_selector"][(shifted_index)].dataset.id = data["results"][index]["id"];
 		category["img_selector"][(shifted_index)].src = data["results"][index]["image_url"];
 	}
 }))
