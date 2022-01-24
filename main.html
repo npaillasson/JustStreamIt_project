@@ -6,10 +6,9 @@
 	<title>JustStreamIt</title>
 </head>
 <body>
-	
-		<header>
-			<img src="images/site_logo.png" alt="Just Stream It logo" id="logo">
-		</header>
+	<header>
+		<img src="images/site_logo.png" alt="Just Stream It logo" id="logo">
+	</header>
 	<div id="bloc_page">
 		<div id="top_film">
 			<div id="bloc_film_and_illustration">
@@ -28,13 +27,12 @@
 		<div id="top_film_selection" class="selection">
 			<section class="selection_title"><h1>Les meilleurs films</h1></section>
 			<div class="selection_list">
-				<div class="scrolling_left_top_film arrow_container">
+				<div class="arrow_container">
 					<span>
-						<img src="images/scrolling_arrow.png" class="arrow_left">
+						<img src="images/scrolling_arrow.png" class="scroll_button arrow_left best_movie">
 					</span>
 				</div>
-				<div class="selection_list">
-
+				<div class="selection_list" id="best_movie">
 					<div class="bloc_illustration">
 						<img src="images/empty_img.jpeg" class="best_film_img film" alt="Premier film de la section meilleurs films">
 					</div>
@@ -59,7 +57,7 @@
 				</div>
 				<div class="scrolling_left_top_film arrow_container">
 					<span>
-						<img src="images/scrolling_arrow.png" class="arrow_right">
+						<img src="images/scrolling_arrow.png" class="scroll_button arrow_right best_movie">
 					</span>
 				</div>
 			</div>
@@ -69,10 +67,10 @@
 			<div class="selection_list">
 				<div class="scrolling_left_top_film arrow_container">
 					<span>
-						<img src="images/scrolling_arrow.png" class="arrow_left">
+						<img src="images/scrolling_arrow.png" class="scroll_button arrow_left section_1">
 					</span>
 				</div>
-				<div class="selection_list">
+				<div class="selection_list" id="section_1">
 					<div class="bloc_illustration">
 						<img src="images/empty_img.jpeg" class="first_category_img film" alt="Premier film de la section 1">
 					</div>
@@ -97,7 +95,7 @@
 				</div>
 				<div class="scrolling_left_top_film arrow_container">
 					<span>
-						<img src="images/scrolling_arrow.png" class="arrow_right">
+						<img src="images/scrolling_arrow.png" class="scroll_button arrow_right section_1">
 					</span>
 				</div>
 			</div>
@@ -107,10 +105,10 @@
 			<div class="selection_list">
 				<div class="scrolling_left_top_film arrow_container">
 					<span>
-						<img src="images/scrolling_arrow.png" class="arrow_left">
+						<img src="images/scrolling_arrow.png" class="scroll_button arrow_left section_2">
 					</span>
 				</div>
-				<div class="selection_list">
+				<div class="selection_list" id="section_2">
 					<div class="bloc_illustration">
 						<img src="images/empty_img.jpeg" class="seconde_category_img film" alt="Premier film de la section 2">
 					</div>
@@ -135,7 +133,7 @@
 				</div>
 				<div class="scrolling_left_top_film arrow_container">
 					<span>
-						<img src="images/scrolling_arrow.png" class="arrow_right">
+						<img src="images/scrolling_arrow.png" class="scroll_button arrow_right section_2">
 					</span>
 				</div>		
 			</div>
@@ -145,10 +143,10 @@
 			<div class="selection_list">
 				<div class="scrolling_left_top_film arrow_container">
 					<span>
-						<img src="images/scrolling_arrow.png" class="arrow_left">
+						<img src="images/scrolling_arrow.png" class="scroll_button arrow_left section_3">
 					</span>
 				</div>
-				<div class="selection_list">
+				<div class="selection_list" id="section_3">
 					<div class="bloc_illustration">
 						<img src="images/empty_img.jpeg" class="third_category_img film" alt="Premier film de la section 3">
 					</div>
@@ -173,7 +171,7 @@
 				</div>
 				<div class="scrolling_left_top_film arrow_container">
 					<span>
-						<img src="images/scrolling_arrow.png" class="arrow_right">
+						<img src="images/scrolling_arrow.png" class="scroll_button arrow_right section_3">
 					</span>
 				</div>	
 			</div>
@@ -258,8 +256,9 @@
 		
 	</aside>
 
-	<script src="js_script/load_main_page.js"></script>
-	<script src="js_script/modal_management.js"></script>
+	<script src="js_script/load_main_page.js" type="text/javascript"></script>
+	<script src="js_script/modal_management.js" type="text/javascript"></script>
+	<script src="js_script/scrolling.js" type="text/javascript"></script>
 
 </body>
 </html>
