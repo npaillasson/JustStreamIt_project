@@ -8,7 +8,7 @@ function makeBulletsList (infoArray) {
 	return returnValue
 }
 
-const closemodal = function (e) {
+const closemodal = function (dnz) {
 	e.preventDefault()
 	modalWindow = document.getElementById("modal1")
 	modalWindow.style.display = "none";
